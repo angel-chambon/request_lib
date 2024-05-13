@@ -26,12 +26,12 @@ Clear()
 try:
     rsp = Request_index.generate_id()
     if type(rsp) == str:
-        if len(rsp) == 8:
+        if len(rsp) == 9:
             Pass()
         else:
-            Fail()
+            Fail('INCORRECT LEN')
     else:
-        Fail()
+        Fail('INCORRECT TYPE')
 except Exception as e:
     Fail(e)
 
@@ -40,31 +40,31 @@ try:
     if rsp == True:
         Pass()
     else:
-        Fail()
+        Fail('INCORRECT TYPE')
 except Exception as e:
     Fail(e)
 
 try:
     rsp = Request_index.get_id('TEST')
     if type(rsp) == str:
-        if len(rsp) == 8:
+        if len(rsp) == 9:
             Pass()
         else:
-            Fail()
+            Fail('INCORRECT LEN')
     else:
-        Fail()
+        Fail('INCORRECT TYPE')
 except Exception as e:
     Fail(e)
 
 try:
     rsp = Request_index.get_last()
     if type(rsp) == str:
-        if len(rsp) == 8:
+        if len(rsp) == 9:
             Pass()
         else:
-            Fail()
+            Fail('INCORRECT LEN')
     else:
-        Fail()
+        Fail('INCORRECT TYPE')
 except Exception as e:
     Fail(e)
 
@@ -74,7 +74,26 @@ try:
     if rsp == True:
         Pass()
     else:
-        Fail()
+        Fail('INCORRECT TYPE')
+except Exception as e:
+    Fail(e)
+
+try:
+    id = Request_index.get_id('TEST')
+    rsp = Save.new('TEST', 'http://test.com/', 'GET', 'TEST=TEST', {"test": "test"})
+    if rsp == True:
+        Pass()
+    else:
+        Fail('INCORRECT TYPE')
+except Exception as e:
+    Fail(e)
+
+try:
+    rsp = Save.clear()
+    if rsp == True:
+        Pass()
+    else:
+        Fail('INCORRECT TYPE')
 except Exception as e:
     Fail(e)
 
