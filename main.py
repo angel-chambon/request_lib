@@ -154,7 +154,7 @@ class Requests:
             req = requests.get(url, headers=Data.transform_to_dict(headers))
             code = req.status_code
             content = req.content
-            return code, content
+            return content
         elif method == 'POST':
             req = requests.post(url, headers=Data.transform_to_dict(headers), json=datajson)
             code = req.status_code
